@@ -1,0 +1,11 @@
+stages:
+  - build
+
+build_image:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t app-votacao .
+    - echo "Build do container realizado com sucesso!"
